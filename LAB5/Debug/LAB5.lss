@@ -138,7 +138,7 @@ void initADC(void){
 
 000000cc <main>:
 
-void initADC(void);
+
 
 int main(void)
 {
@@ -192,6 +192,7 @@ int main(void)
  108:	00 c0       	rjmp	.+0      	; 0x10a <main+0x3e>
  10a:	00 00       	nop
 		_delay_ms(10);   //Velocidad de servo
+		//suma ++;
 		
 		convertServo(ADCH, channelB);
  10c:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
@@ -367,8 +368,8 @@ void initFastPWM1(uint8_t modePWM, uint16_t prescaler){
 		topVal = 1;		
  1e6:	81 e0       	ldi	r24, 0x01	; 1
  1e8:	90 e0       	ldi	r25, 0x00	; 0
- 1ea:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
- 1ee:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 1ea:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 1ee:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
  1f2:	08 95       	ret
 
 000001f4 <topValue>:
@@ -378,8 +379,8 @@ void initFastPWM1(uint8_t modePWM, uint16_t prescaler){
 
 void topValue(uint16_t top){
 	if (topVal == 1)	{
- 1f4:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
- 1f8:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 1f4:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <_edata>
+ 1f8:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <_edata+0x1>
  1fc:	21 30       	cpi	r18, 0x01	; 1
  1fe:	31 05       	cpc	r19, r1
  200:	29 f4       	brne	.+10     	; 0x20c <topValue+0x18>
@@ -389,8 +390,8 @@ void topValue(uint16_t top){
  20a:	08 95       	ret
 		}else{
 		topVal = 0;
- 20c:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
- 210:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 20c:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <_edata+0x1>
+ 210:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_edata>
  214:	08 95       	ret
 
 00000216 <convertServo>:

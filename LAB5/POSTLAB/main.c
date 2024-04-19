@@ -36,7 +36,7 @@ int main(void)
 void setup(void){
 	cli();
 	
-	DDRB |= (1<<DDB3);
+	DDRB |= (1<<DDB5);
 	
 	
 	TCCR2A = 0;
