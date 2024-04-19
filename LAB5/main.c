@@ -17,6 +17,8 @@
 
 void initADC(void);
 
+
+
 int main(void)
 {
 	cli();  //Apagar interrupciones
@@ -35,6 +37,7 @@ int main(void)
 	{
 		ADCSRA |= (1 << ADSC);   //Leer puerto de ADC 
 		_delay_ms(10);   //Velocidad de servo
+		//suma ++;
 		
 		convertServo(ADCH, channelB);
 	
